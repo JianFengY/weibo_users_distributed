@@ -67,6 +67,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'weibo_users.pipelines.MongoPipeline': 300,
+    # 将清除的项目在redis进行处理
     'scrapy_redis.pipelines.RedisPipeline': 301,
 }
 
@@ -131,6 +132,8 @@ USER_AGENTS = [
 ]
 
 # 分布式的设置
+# 启用Redis调度存储请求队列
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# 确保所有的爬虫通过Redis去重
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 REDIS_URL = 'redis://user:pass@hostname:6379'  # 修改为你的ip和用户密码
