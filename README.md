@@ -3,7 +3,7 @@
 
 使用`scrapy-redis`实现分布式爬取，结果保存MongoDB
 
-通过分析https://m.weibo.cn/请求编写用户爬虫
+通过分析[https://m.weibo.cn/](https://m.weibo.cn/)请求编写用户爬虫
 
 方法是先选取一个用户获取他的关注与粉丝
 
